@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+
+    <title>播放页面</title>
+    <script type="text/javascript" src="http://wap.wangxiao.cn/content/tushu/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="http://yuntv.letv.com/bcloud.js"></script>
+    <style>
+        *{padding:0;margin:0;}
+        .videos{width:100%;height:auto;}
+    </style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <div class="videos" id="videoPlayer">
+        
+    </div>
+    <footer></footer>
+    <input type="hidden" id="h_vu" value="5cc387394f">
+</body>
+<script type="text/javascript">
+    $(function () {
+            // body...
+            var videoid = 'videoPlayer',
+                windowWidth=$(window).width(),
+                playerHeight = windowWidth * 9 / 16;
+            var videoConfig = {
+                uu: "a91d451d26",
+                vu: "48ced7e1c4",
+                pic:'http://img.wangxiao.cn/bjupload/2017-06-08/0f12b42f-24fd-44cf-97ac-613c93ec1261.png',
+                height:playerHeight,
+                width:windowWidth,
+                autoplay: 1,
+            }
+            if(document.createElement('video').canPlayType) {
+                videoConfig["type"] = "h5";
+            }
+            var player = new CloudVodPlayer();
+            player.init(videoConfig, videoid);
+	})
+
+</script>
+</html>

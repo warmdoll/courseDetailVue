@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>发表的内容</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/listpage.css">
+    <script src="../js/vue.js"></script>
+   
+    <style type="text/css">
+            .slide-fade-enter-active {
+                transition: all .3s ease;
+            }
+            .slide-fade-leave-active {
+                transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+            }
+            .slide-fade-enter, .slide-fade-leave-to
+            /* .slide-fade-leave-active for below version 2.1.8 */ {
+                transform: translateX(10px);
+                opacity: 0;
+            }
+    </style>
+</head>
+<body>
+       
+             <header id="show-hide">
+                 <div class="header">
+                    <span class="commonico js-pull-down" v-bind:class="{ 'pull-up': show, 'pull-down': !show }" @click="show=!show"></span>
+                 </div>
+                 <!--菜单列表-->
+                 <transition  name="slide-fade" tag="ul">
+                     <div class="menu-box" v-if="show">
+                        <ul>
+                            <li class="txt-center" v-for="item in items" v-bind:key="item">{{ item }}</li>
+                        </ul>  
+                     </div>
+                </transition>
+             </header> 
+             <section>
+                 <div class="section">
+                     
+                 </div>
+             </section> 
+             <footer></footer>
+            
+       
+</body>
+ <script type="text/javascript" src="../js/clickFn.js"></script>
+</html>

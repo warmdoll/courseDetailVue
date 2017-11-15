@@ -7,31 +7,32 @@
     <meta name="Description" content="">
     <meta name="keywords" content="">
     <title>暂无开通权限</title>
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- <script type="text/javascript" src="../js/vue.js"></script> -->
+    <script src="http://wap2.wangxiao.cn/Content/tushu/js/vue.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
 </head>
 <body>
         <body>
                 <!-- main -->
-                <div class="main" id="app">
+                <div class="main" >
                     <h1>Skills Profile Web</h1>
                     <div class="main-info w3l">
-                        <div class="main-row"><!-- main-row-one -->
-                            <div class="profile-grid logo wthree">
+                        <div class="main-row" id="app"><!-- main-row-one -->
+                            <div  class="profile-grid logo wthree">
                                 <img src="../image/me.jpg" alt="">
-                                <h2>Miss.Anna </h2>
-                                <p>技术展示</p>
+                                <!-- <h2  v-bind:title="changeMessage">Miss.Anna </h2> -->
+                                <p>Miss.Anna</p>
                                 
                             </div>
-                            <h3 class="title">Skills</h3>
-                                <div class="col-md-6 skills-right bar_group">
-                                
-                                <div class='bar_group__bar thin' label='Lorem ipsum &nbsp;&nbsp; 80%' value='200'></div>
-                                <div class='bar_group__bar thin' label='Quis nostrud &nbsp;&nbsp; 100%' value='250'></div>
-                                <div class='bar_group__bar thin' label='Sed do eiusmod &nbsp;&nbsp; 72%' value='180'></div>
-                                <div class='bar_group__bar thin' label='Ut enim adnim &nbsp;&nbsp; 88%' value='220'></div>
+                            <div id="app-3">
+                                <h3  class="title" v-if="seen">Skills</h3>
+                            </div>
+                                <div class="col-md-6 skills-right bar_group" id="app-7">
+                                <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+                                </todo-item>
                             </div>
                             <!--bar-js-->
                             <script src="js/bars.js"></script>

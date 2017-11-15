@@ -1,0 +1,39 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge" >
+<meta name="viewport"   content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<title>Aliplayer在线配置</title>
+<link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.2.0/skins/default/aliplayer-min.css" />
+<script type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.2.0/aliplayer-min.js"></script>
+<style type="text/css">
+    .prism-player{top:0;}
+</style>
+</head>
+<body>
+ <div  class="prism-player" id="J_prismPlayer" style="position: absolute;left:0%;"></div>
+ <script>
+    var player = new Aliplayer({
+    id: "J_prismPlayer",
+         autoplay: true,
+         playsinline:true,
+         width:"100%",
+         height:"auto",
+         controlBarVisibility:"always",
+         useH5Prism:false,
+         useFlashPrism:false,
+         isLive:true,//设置为true时为直播状态
+         source:"http://219.238.31.46/play.videocache.lecloud.com/260/40/113/bcloud/121442/ver_00_22-1111546687-avc-199906-aac-48000-1370240-44565236-9428f64beb800cbd1cc81cb0597f448f-1501412996234.mp4?crypt=23aa7f2e292&b=260&nlh=4096&nlt=60&bf=90&p2p=1&video_type=mp4&termid=2&tss=no&platid=2&splatid=209&its=0&qos=2&fcheck=0&amltag=666888&mltag=666888&proxy=3689815911,2092994851,467476918&uid=1962122789.rp&keyitem=GOw_33YJAAbXYE-cnQwpfLlv_b2zAkYctFVqe5bsXQpaGNn3T1-vhw..&ntm=1510729200&nkey=a46cf0831ec259037e5e790a2dbe87b0&nkey2=9c9e161b8113d055dd9aeb6d2d942c5f&auth_key=1510729200-1-0-2-209-2feba0d2665db83ea46067102d08069b&geo=CN-1-12-16&mmsid=241644966&tm=1510710619&key=c7d07ba3bb95e7817674ef6b711755de&payff=0&cuid=121442&vtype=21&dur=1370&p1=3&p2=31&p3=311&cf=h5-ios&p=101&playid=0&tag=mobile&sign=bcloud_121442&pay=0&ostype=ios&hwtype=un&uuid=13D229F76AE65B60CCDE3B44616AF2F9_0&vid=46738589&ajax=1&_r=jsonp&uidx=0&errc=0&gn=3083&ndtype=0&vrtmcd=106&buss=666888&cips=116.243.158.37",
+         cover:""  ,
+         skinLayout:[{"name":"bigPlayButton","align":"blabs","x":30,"y":80},
+         {"name":"controlBar","align":"blabs","x":0,"y":0,"children":[{"name":"progress","align":"tlabs","x":0,"y":0},
+         {"name":"playButton","align":"tl","x":15,"y":26},
+         {"name":"fullScreenButton","align":"tr","x":20,"y":25},
+         {"name":"volume","align":"tr","x":20,"y":25}]},
+         {"name":"fullControlBar","align":"tlabs","x":0,"y":0,"children":[{"name":"fullTitle","align":"tl","x":25,"y":6}]},
+         {"name":"errorDisplay","align":"tlabs","x":0,"y":0}],           
+});
+  </script>
+</body>

@@ -1,0 +1,46 @@
+.header{
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+}
+.pull-down.commonico,.pull-up.commonico{
+    display: inline-block;
+    width: 2rem;
+    height: 1.4rem;
+    float: right;
+    margin-right: 1rem;
+}
+.pull-down.commonico:after,
+.pull-up.commonico:after{
+    background-position: -0.3rem -0.5rem;
+    width: 2rem;
+    height: 1.4rem;
+    
+}
+.pull-up.commonico:after{
+    background-position: -5.8rem -0.5rem; 
+}
+.menu-box{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 101;
+    width: 50%;
+    border:1px solid #2d7eb7;
+    color: #fff;
+    padding: 0.5rem;
+    height: 100%;
+    background:rgba(0,0,0,0.3);
+    top: 5%;
+    
+}
+.menu-box li{
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+}
+.menu-box ul{
+    padding-top: 1.5rem;
+}

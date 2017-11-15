@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>播放页面</title>
+    <script type="text/javascript" src="http://wap.wangxiao.cn/content/tushu/js/jquery-2.2.3.min.js"></script>
+    <script  type="text/javascript" src="aliorwechatpay.js"></script>
+    <style>
+        *{padding:0;margin:0;}
+        html,body{font-size: 10px; color: #666;}
+        .header{text-align: center;padding:0.5rem;font-size: 1.6rem;border:1px solid #f5f5f5;
+                color:#fff;background-color: #73c5f9 ;}
+        .text-box { padding: 0.5rem;font-size: 1.4rem;border: 1px solid #f7f7f7;margin: 1rem; border-radius: 5px;}
+        .text-lt{font-size: 1.4rem;  padding: 0.5rem 0; }
+        .padding5{padding: 0.5rem 0;}
+        .text-box input {height: 1rem;width: 94%;border: 0;outline: none;padding-left: 1rem;
+                         padding: 0.5rem 0;border-bottom: 1px solid #f5f5f5;
+                         }
+        .pay-btn{text-align: center;background-color:#73c5f9; color: #fff;padding:0.5rem 0;width: 90%;margin:0 auto;
+                 margin-top: 2rem;border-radius: 5px;font-size: 1.6rem; background-image: -webkit-linear-gradient(top, #73c5f9 10%,#418ede 100%);
+                }
+        .buy_skip.js_skip {font-size: 1.2rem;padding: 0.5rem 1rem;z-index: 1050;border-radius: 5px;
+                            background-color: rgba(0, 0, 0, .6); bottom: 20%;left: 50%;color: #fff;text-align: center; position: fixed;
+                            -ms-transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);
+                            -o-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">支付页面</div>
+    </header>
+    <div class="pay-box">
+            <div class="text-box">
+                <div class="text-lt">支付金额:</div>
+                <div class="input-box">
+                        <input type="number" name="totalManey" placeholder="请输入金额">
+                        <span>元</span>
+                </div>
+                
+                <p class="padding5">
+                    请和工作人员确认输入金额
+                </p>
+            </div>
+            <div class="pay-btn" id="confirm-btn">确认支付</div>
+    </div>
+    <div class="buy_skip js_skip js-all-message" style="opacity: 0; display: none;"></div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+    payFn.wexinPay();
+    $(function () {
+        payFn.initFn();
+	})
+
+</script>
+</html>

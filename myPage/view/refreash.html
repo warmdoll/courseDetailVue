@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>暂无开通权限</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="http://wap.wangxiao.cn/Content/js/jquery.1.11.3.min.js"></script>
+
+    <script src="http://wap2.wangxiao.cn/Content/tushu/js/vue.js"></script>
+    <script type="text/javascript" src="../js/vueaa.js"></script>
+
+</head>
+<body class="page-list" id="app">
+    <template>
+        <div>
+          <pull-to :top-load-method="refresh">
+            <ul>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+            </ul>
+          </pull-to>
+        </div> 
+      </template>
+      
+      <script>
+        import PullTo from 'vue-pull-to'
+        
+        export default {
+          name: 'example',
+          components: {
+            PullTo
+          },
+          methods: {
+            refresh(loaded) {
+              setTimeout(() => {
+                this.dataList.reverse();
+                loaded('done');
+              }, 2000);
+            }
+          }
+        }
+      </script>
+
+  
+</body>
+
+</html>

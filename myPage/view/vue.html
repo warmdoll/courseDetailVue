@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>暂无开通权限</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/vue.js"></script> -->
+    <script src="http://wap2.wangxiao.cn/Content/tushu/js/vue.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+</head>
+<body>
+       
+                <!-- main -->
+                <div class="main" >
+                    <h1>Skills Profile Web</h1>
+                    <div class="main-info w3l">
+                        <div class="main-row" id="app"><!-- main-row-one -->
+                            <div  class="profile-grid logo wthree">
+                                <img src="../image/me.jpg" alt="">
+                                <!-- <h2  v-bind:title="changeMessage">Miss.Anna </h2> -->
+                                <p>Miss.Anna</p>
+                                
+                            </div>
+                            <div id="app-3">
+                                <h3  class="title" v-if="seen">Skills</h3>
+                            </div>
+                                <div class="col-md-6 skills-right bar_group" id="app-7">
+                                <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+                                </todo-item>
+                            </div>
+                            <!--bar-js-->
+                            <script src="js/bars.js"></script>
+                            <div class="social-icons agileits">
+                                    <ul>
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#" class="fb"></a></li>
+                                        <li><a href="#" class="be"></a></li>
+                                        <li><a href="#" class="gg"></a></li>
+                                    </ul>	
+                                </div>
+                            <div class="clear"> </div>
+                        </div>	
+                    </div>	
+                    <!-- copyright -->
+                    <div class="copyright">
+                        <p> © 2017 Skills Profile .</p>
+                    </div>
+                    <!-- //copyright -->
+                </div>	
+                <!-- main -->
+            
+</body>
+</html>

@@ -1,5 +1,7 @@
 
-
+html,body{
+    font-size: 10px;
+}
 
 h1 {
     font-size: 3em;
@@ -541,4 +543,31 @@ h3.title {
     margin: 1.5em 0 1em;
 }
 }
-/*--//responsive-design---*/
+/* 内容列表页面 */
+html,body{
+    background-image:-webkit-linear-gradient(top, #cff3f2 10%,#65cece 100%);
+    height:100%;
+}
+.page-list{
+    background: none;
+    font-size: 0.8rem;
+    overflow: hidden;
+}
+.my-content{ background-image:-webkit-linear-gradient(top, #cff3f2 10%,#65cece 100%);}
+.mui-table-view{background-image:-webkit-linear-gradient(top, #cff3f2 10%,#65cece 100%);}
+.mui-table-view:before{background-color:transparent;}
+.mui-pull{color:#fff;}
+.item-box{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 6px 6px 3px #7ee3e8;
+}
+.item-list-content{
+    max-height: 8rem;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    color: #666;
+    text-align: justify;
+}

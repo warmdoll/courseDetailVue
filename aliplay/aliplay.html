@@ -7,26 +7,140 @@
 <meta name="viewport"   content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 <title>Aliplayer在线配置</title>
 <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.2.0/skins/default/aliplayer-min.css" />
+<script src="http://wap.wangxiao.cn/Content/js/jquery.1.11.3.min.js"></script>
 <script type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.2.0/aliplayer-min.js"></script>
 <style type="text/css">
-    .prism-player{top:0;}
+    html,body{padding:0;margin:0;}
+    .prism-player{top:0;background-color:#000;width:100%;min-height:12rem;}
+    .prism-player .prism-big-play-btn {
+        width: 45px;
+        height: 45px;
+        background-size: 128px 256px;
+    }
 </style>
 </head>
 <body>
- <div  class="prism-player" id="J_prismPlayer" style="position: absolute;left:0%;"></div>
+        <div id="J_prismPlayer" class="prism-player"></div>   <!-- prism-player为h5播放器皮肤的钩子类名，请务必加上 -->
+        <script type="text/javascript">
+            $(function(){
+                aliVideo.init();  
+            })
+            //阿里云播放器实例化传入的对象
+            var videoUrl="http://219.238.31.111:8080/249/33/40/bcloud/121442/ver_00_22-1106472879-avc-199572-aac-48000-1612160-52373947-3dbe9cf9ec451bcee6ef65a72a631336-1497943263579.m3u8?crypt=18aa7f2e291&b=259&nlh=4096&nlt=60&bf=90&p2p=1&video_type=mp4&termid=2&tss=ios&platid=2&splatid=209&its=0&qos=2&fcheck=0&amltag=666888&mltag=666888&path=101.246.187.250&proxy=1710668770,3396181536,467476983&uid=1962122789.rp&keyitem=GOw_33YJAAbXYE-cnQwpfLlv_b2zAkYctFVqe5bsXQpaGNn3T1-vhw..&ntm=1510925400&nkey=09d7c43f116f7e5bc8b97518f13b5309&nkey2=25d11cbba97b214f5bcdc4eff6900241&auth_key=1510925400-1-0-2-209-e8c531b6772cc7aa1ec328e4675034b8&geo=CN-1-12-16&mmsid=238535566&tm=1510907312&key=051838d01fc1928992f027a07b5d51b5&payff=0&cuid=121442&vtype=21&dur=1612&p1=3&p2=31&p3=311&cf=h5-ios&p=101&playid=0&tag=mobile&sign=bcloud_121442&pay=0&ostype=ios&hwtype=un&uuid=E1F35D5A47899F0B64490D5B7D92A6FB_0&vid=45761273&ajax=1&_r=jsonp&uidx=2&errc=0&gn=1938&ndtype=0&vrtmcd=108&buss=666888&cips=116.243.158.37"; //获取的视频地址
+            var AliplayerObj={
+                id: "J_prismPlayer", // 容器id
+                source: videoUrl,        // 视频url
+                width: "100%",       // 播放器宽度
+                height: "auto",     // 播放器高度
+                isLive:true,
+                useH5Prism:false,       //h5播放
+                useFlashPrism:false,   //flash播放
+            };
+            var aliVideo={
+                init:function(){
+                    var that=this;
+                    player = new Aliplayer(AliplayerObj);
+                    player.on('ready',that.videoType);
+                    that.seekTime(10000);
+                },
+                //视频播放状态
+                videoType:function(e){
+                    var that=this,type=e.type;
+                    if (type == "ended") {
+                    //当前视频播放完毕时触发
+                    console.log(type)
+                    } else if (type == "play") {
+                    //视频由暂停恢复为播放时触发
+                    console.log(type)
+                    }else if(type=="pause"){
+                    //视频暂停时触发
+                        console.log(type)
+                    }else if(type=="ready"){
+                        player.pause();
+                        setTimeout(function() {
+                            player.play();
+                            type="playing--";
+                        }, 2000);
+                        console.log(type)
+                    }
+                    
+                },
+                //设置视频播放开始时间
+                seekTime:function(){
+                    var seeked = false;//播放器如何初始播放位置h5--canplaythrough flash--loadedmetadata
+                    player.on('canplaythrough',function  (e) {
+                        if(!seeked)
+                        {
+                        seeked = true;
+                        player.seek(100);
+                        }
+                    });
+                },
+                
+            }
+            // var videoUrl="http://219.238.31.46/play.videocache.lecloud.com/241/46/60/bcloud/121442/ver_00_22-1080290868-avc-200055-aac-48000-2218600-72036453-ef26287c92688d907b795f3d7ca2c372-1483697174665.mp4?crypt=88aa7f2e291&b=259&nlh=4096&nlt=60&bf=90&p2p=1&video_type=mp4&termid=2&tss=no&platid=2&splatid=209&its=0&qos=2&fcheck=0&amltag=666888&mltag=666888&proxy=3689815924,3550581769,3550581770&uid=1962122789.rp&keyitem=GOw_33YJAAbXYE-cnQwpfLlv_b2zAkYctFVqe5bsXQpaGNn3T1-vhw..&ntm=1510906200&nkey=b2285411e895263d61fcde000d0c5e1c&nkey2=7f9fd3ff44b8aa2c68ee50a2149c8143&auth_key=1510906200-1-0-2-209-d916cd7c593b3ac78a9e7a8851e590a4&geo=CN-1-12-16&mmsid=218930523&tm=1510887857&key=54260abda177f1e5ce1730f99b872acb&payff=0&cuid=121442&vtype=21&dur=2218&p1=3&p2=31&p3=311&cf=h5-ios&p=101&playid=0&tag=mobile&sign=bcloud_121442&pay=0&ostype=ios&hwtype=un&uuid=01A7EF3A5EF6E8E8536121B97F5DFF9C_0&vid=39441503&ajax=1&_r=jsonp&uidx=0&errc=0&gn=3083&ndtype=0&vrtmcd=106&buss=666888&cips=116.243.158.37"; //获取的视频地址
+            // // 初始化播放器
+            // var player = new Aliplayer({
+            //     id: "J_prismPlayer", // 容器id
+            //     source: videoUrl,        // 视频url
+            //     width: "100%",       // 播放器宽度
+            //     height: "auto",     // 播放器高度
+            //     isLive:true,
+            //     useH5Prism:false,       //h5播放
+            //      useFlashPrism:false,   //flash播放
+            // });
+            // var aliVideoType="",
+            // callback = function(e)
+            // {
+            //     var type=e.type;
+            //     if (type == "ended") {
+            //        //当前视频播放完毕时触发
+            //        console.log(type)
+            //     } else if (type == "play") {
+            //        //视频由暂停恢复为播放时触发
+            //        console.log(type)
+            //     }else if(type=="pause"){
+            //      //视频暂停时触发
+            //      console.log(type)
+            //     }
+            //     console.log(type)
+            // }
+            // player.on('ended',callback);
+            // player.on('play',callback);
+            // player.on('pause',callback);
+            //player.on('ready',callback);
+            //player.dispose();销毁播放器
+            // function pcb(type, data) {
+            //     //视频播放完毕
+            //     console.log(type); 
+            // }
+            // var type="";
+            // player.on('ready',function(e) {
+            //     type="stop";
+            //     player.pause();
+            //     setTimeout(function() {
+            //         player.play();
+            //         type="playing--";
+            //     }, 2000);
+            //     console.log(type)
+            // });
+        </script>
+ <!-- <div  class="prism-player" id="J_prismPlayer" style="position: absolute;left:0%;"></div>
  <script>
     var player = new Aliplayer({
-    id: "J_prismPlayer",
+         id: "J_prismPlayer",
          autoplay: true,
          playsinline:true,
          width:"100%",
          height:"auto",
-         controlBarVisibility:"always",
+         controlBarVisibility:"hover",//控制面板的显示
          useH5Prism:false,
          useFlashPrism:false,
-         isLive:true,//设置为true时为直播状态
+         isLive:false,//设置为true时为直播状态
          source:"http://219.238.31.46/play.videocache.lecloud.com/260/40/113/bcloud/121442/ver_00_22-1111546687-avc-199906-aac-48000-1370240-44565236-9428f64beb800cbd1cc81cb0597f448f-1501412996234.mp4?crypt=23aa7f2e292&b=260&nlh=4096&nlt=60&bf=90&p2p=1&video_type=mp4&termid=2&tss=no&platid=2&splatid=209&its=0&qos=2&fcheck=0&amltag=666888&mltag=666888&proxy=3689815911,2092994851,467476918&uid=1962122789.rp&keyitem=GOw_33YJAAbXYE-cnQwpfLlv_b2zAkYctFVqe5bsXQpaGNn3T1-vhw..&ntm=1510729200&nkey=a46cf0831ec259037e5e790a2dbe87b0&nkey2=9c9e161b8113d055dd9aeb6d2d942c5f&auth_key=1510729200-1-0-2-209-2feba0d2665db83ea46067102d08069b&geo=CN-1-12-16&mmsid=241644966&tm=1510710619&key=c7d07ba3bb95e7817674ef6b711755de&payff=0&cuid=121442&vtype=21&dur=1370&p1=3&p2=31&p3=311&cf=h5-ios&p=101&playid=0&tag=mobile&sign=bcloud_121442&pay=0&ostype=ios&hwtype=un&uuid=13D229F76AE65B60CCDE3B44616AF2F9_0&vid=46738589&ajax=1&_r=jsonp&uidx=0&errc=0&gn=3083&ndtype=0&vrtmcd=106&buss=666888&cips=116.243.158.37",
          cover:""  ,
+         callbackJs:playerCallBack,
+         autoPlayDelay:"1000s",
          skinLayout:[{"name":"bigPlayButton","align":"blabs","x":30,"y":80},
          {"name":"controlBar","align":"blabs","x":0,"y":0,"children":[{"name":"progress","align":"tlabs","x":0,"y":0},
          {"name":"playButton","align":"tl","x":15,"y":26},
@@ -34,6 +148,21 @@
          {"name":"volume","align":"tr","x":20,"y":25}]},
          {"name":"fullControlBar","align":"tlabs","x":0,"y":0,"children":[{"name":"fullTitle","align":"tl","x":25,"y":6}]},
          {"name":"errorDisplay","align":"tlabs","x":0,"y":0}],           
-});
-  </script>
+  });
+  // player.on('ready',function(e) {
+  //    // player.pause();//暂停视频
+  //     // setTimeout(function() {
+  //     //   player.replay();//重播视频
+  //     // }, 5000);
+  //     //player.seek(40000);//跳转到某个时刻进行播放，time的单位为秒
+  // });
+  // var seeked = false;//播放器如何初始播放位置h5--canplaythrough flash--loadedmetadata
+  // player.on('canplaythrough',function  (e) {
+  //   if(!seeked)
+  //   {
+  //     seeked = true;
+  //     player.seek(100);
+  //   }
+  // });
+  </script> -->
 </body>

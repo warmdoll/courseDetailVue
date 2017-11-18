@@ -1,0 +1,62 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge" >
+<meta name="viewport"   content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<title>Aliplayer在线配置</title>
+
+<script src="http://wap.wangxiao.cn/Content/js/jquery.1.11.3.min.js"></script>
+<script src="http://api.html5media.info/1.1.6/html5media.min.js"></script>
+<style type="text/css">
+    html,body{padding:0;margin:0;}
+    .prism-player{top:0;background-color:#000;width:100%;min-height:12rem;}
+    .prism-player .prism-big-play-btn {
+        width: 45px;
+        height: 45px;
+        background-size: 128px 256px;
+    }
+</style>
+</head>
+<body>
+        <object classid='CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6'></object>
+</body>
+<script>
+        // var audio = $("#audio")[0];  
+
+        // audio.pause();  
+
+        // audio.play();  
+
+        var musicSrc = "http://rd.wangxiao.cn/2017-06-12/P13813796698_T20170612_164424.wav";      
+  
+        function playSound()  
+        {  
+            var borswer = window.navigator.userAgent.toLowerCase();  
+            if ( borswer.indexOf( "ie" ) >= 0 )  
+            {  
+                //IE内核浏览器  
+                var strEmbed = '<embed name="embedPlay" src="http://www.tnt168.com/public/wav/notice.wav" autostart="true" hidden="true" loop="false"></embed>';  
+                if ( $( "body" ).find( "embed" ).length <= 0 )  
+                    $( "body" ).append( strEmbed );  
+                var embed = document.embedPlay;  
+  
+                //浏览器不支持 audion，则使用 embed 播放  
+                embed.volume = 100;  
+                embed.play();  
+            } else  
+            {  
+                //非IE内核浏览器  
+                var strAudio = "<audio id='audioPlay' src='http://www.tnt168.com/public/wav/notice.wav' hidden='true'>";  
+                if ( $( "body" ).find( "audio" ).length <= 0 )  
+                    $( "body" ).append( strAudio );  
+                var audio = document.getElementById( "audioPlay" );  
+  
+                //浏览器支持 audion  
+                audio.play();  
+            }  
+        }  
+        playSound();
+</script>
+</html>

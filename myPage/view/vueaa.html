@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>暂无开通权限</title>
+    <link rel="stylesheet" href="http://wap.wangxiao.cn/Content/wenda/css/mui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="http://wap.wangxiao.cn/Content/js/jquery.1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/vue.js"></script> -->
+    <script type="text/javascript" src="http://wap.wangxiao.cn/Content/wenda/js/mui.min.js"></script>
+    <script src="http://wap2.wangxiao.cn/Content/tushu/js/vue.js"></script>
+    <script type="text/javascript" src="../js/vueaa.js"></script>
+
+</head>
+<body class="page-list" id="app">
+    <!-- main -->
+    <div  id="refreshContainer" class="mui-content mui-scroll-wrapper item my-content" >
+        <div class="mui-scroll">
+            <ul class="mui-table-view mui-table-view-chevron">
+                <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+                </todo-item>
+            </ul>
+        </div>
+    </div>
+   
+    <!-- main -->
+
+  
+</body>
+<script type="text/javascript">
+$(function(){
+    
+})
+    
+</script>
+</html>
